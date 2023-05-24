@@ -28,7 +28,7 @@
         </div>
     </div>
 
-    <div class="absolute top-[173px] w-full group bg-neutral-900 hover:bg-amber-400 duration-200">
+    <div class="absolute top-[173px] w-full z-10 group bg-neutral-900 hover:bg-amber-400 duration-200">
         <div class="container mx-auto">
             <ul class="flex justify-between duration-200 group-hover:text-black text-white text-lg font-bold">
                 @foreach($categories as $category)
