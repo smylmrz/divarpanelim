@@ -1,7 +1,7 @@
 @extends('dashboard.master')
 
 @section('links')
-    <link rel="stylesheet" href="{{ asset("dashboard/css/dataTables.bootstrap.min.css") }}">
+    <link rel="stylesheet" href="{{ asset("admin/css/dataTables.bootstrap.min.css") }}">
 @endsection
 
 @section('content')
