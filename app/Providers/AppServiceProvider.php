@@ -19,6 +19,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+
+        view()->share([
+            'categories' => [
+                'Coving',
+                'Skirting',
+                'Wall Mouldings',
+                '3D Wall Covering',
+                'Coving Lightnin',
+                'Decorative Elements',
+                'Adhesives & Tools'
+            ]
+        ]);
     }
 }
