@@ -1,5 +1,5 @@
 <template>
-    <div class="relative mt-16 py-20">
+    <section class="relative py-20">
 
         <div class="grid grid-cols-12 gap-10 container mx-auto">
             <div class="col-span-6">
@@ -36,7 +36,7 @@
 
             </div>
         </div>
-    </div>
+    </section>
 </template>
 
 <script setup>

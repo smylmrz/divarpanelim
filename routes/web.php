@@ -31,3 +31,5 @@ Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function(){
     });
 
 });
+
+Route::get('/{slug}', [\App\Http\Controllers\CategoryController::class, 'show'])->name('categories.show');

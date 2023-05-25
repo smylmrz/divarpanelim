@@ -18,7 +18,7 @@
 <div id="app">
     @include('partials.header')
 
-    <main>
+    <main class="mt-16">
         @yield('content')
     </main>
 </div>
