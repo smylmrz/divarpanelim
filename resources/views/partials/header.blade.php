@@ -17,7 +17,7 @@
         </div>
 
         <div class="col-span-6 text-center space-y-4">
-            <a title="Divar Panelim" class="block  font-pfd text-6xl font-bold" href="{{ route('home') }}">
+            <a title="Divar Panelim" class="block  font-pfd text-6xl font-black" href="{{ route('home') }}">
                 DivarPanelim.az
             </a>
             <p class="text-sm text-gray-500">Premium home decors that work</p>

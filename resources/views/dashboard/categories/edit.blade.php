@@ -19,7 +19,6 @@
                             <form action="{{ route('dashboard.categories.update', $category->id)}}" enctype="multipart/form-data" method="post">
                                 @csrf
                                 @method('PUT')
-                                <input type="hidden" name="id" value="{{$category->id}}">
 
                                 <div class="form-group">
                                     @if ($category->image)

@@ -26,8 +26,9 @@ Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function(){
         Route::get('/logout', [\App\Http\Controllers\LoginController::class, 'logout'])->name('logout');
         Route::get('/', [\App\Http\Controllers\AdminController::class, 'index'])->name('index');
 
-        Route::resource('languages', \App\Http\Controllers\LanguageController::class);
+        Route::resource('languages', \App\Http\Controllers\Admin\LanguageController::class);
         Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class);
+        Route::resource('sliders', \App\Http\Controllers\Admin\SliderController::class);
     });
 
 });

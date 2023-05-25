@@ -33,7 +33,7 @@
                     >
                     <ul class="sub-menu children dropdown-menu">
                         <li>
-                            <a href="">
+                            <a href="{{ route('dashboard.sliders.index') }}">
                                 Slayderlər
                             </a>
                         </li>
@@ -44,6 +44,40 @@
                             </a>
                         </li>
                     </ul>
+                </li>
+
+                {{-- Categories --}}
+                <li class="menu-item-has-children dropdown">
+                    <a
+                        href="#"
+                        class="dropdown-toggle"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                    >
+                        <i class="menu-icon ti-menu"></i>
+                        Kateqoriyalar
+                    </a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li>
+                            <a href="{{ route('dashboard.categories.index') }}">
+                                Bütün kateqoriyalar
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                Seçilmişlər
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                {{-- Languages --}}
+                <li>
+                    <a href="{{ route('dashboard.languages.index') }}">
+                        <i class="menu-icon ti-world"></i>
+                        Dil
+                    </a>
                 </li>
 
                 {{-- Socials --}}
@@ -136,32 +170,6 @@
                     </a>
                 </li>
 
-                {{-- Categories --}}
-                <li class="menu-item-has-children dropdown">
-                    <a
-                        href="#"
-                        class="dropdown-toggle"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                    >
-                        <i class="menu-icon ti-menu"></i>
-                        Kateqoriyalar
-                    </a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li>
-                            <a href="{{ route('dashboard.categories.index') }}">
-                                Bütün kateqoriyalar
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                Seçilmişlər
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
                 {{-- Orders --}}
                 <li class=" {{ true ? "menu-item-has-children menu-item-chat" : "" }}">
                     @if (true)
@@ -177,27 +185,11 @@
                     @endif
                 </li>
 
-                {{-- Menu --}}
-                <li>
-                    <a href="">
-                        <i class="menu-icon ti-menu"></i>
-                        Menyu
-                    </a>
-                </li>
-
                 {{-- Email list --}}
                 <li>
                     <a href="">
                         <i class="menu-icon ti-email"></i>
                         Abunələr
-                    </a>
-                </li>
-
-                {{-- Languages --}}
-                <li>
-                    <a href="{{ route('dashboard.languages.index') }}">
-                        <i class="menu-icon ti-world"></i>
-                        Dil
                     </a>
                 </li>
 
