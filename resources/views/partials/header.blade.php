@@ -35,11 +35,13 @@
                     <li class="py-4 w-full hover:bg-amber-500 duration-200">
                         <a class="flex flex-col items-center" href="">
                             <span>
-                                {{ $category }}
+                                {{ $category->name }}
                             </span>
-                            <div class="w-24 hidden group-hover:block">
-                                <img src="https://www.oracdecor.com/media/catalog/product/cache/c4ad0207ad540924e820413624265bec/c/x/cx196_cornice_moulding_a0c3.png" alt="">
-                            </div>
+                            @if($category->image)
+                                <div class="w-24 hidden group-hover:block">
+                                    <img src="{{ $category->image }}" alt="{{ $category->name }}">
+                                </div>
+                            @endif
                         </a>
                     </li>
                 @endforeach

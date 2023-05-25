@@ -27,6 +27,7 @@ Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function(){
         Route::get('/', [\App\Http\Controllers\AdminController::class, 'index'])->name('index');
 
         Route::resource('languages', \App\Http\Controllers\LanguageController::class);
+        Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class);
     });
 
 });

@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Category;
+use App\Models\Language;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -21,15 +23,8 @@ class AppServiceProvider extends ServiceProvider
     {
 
         view()->share([
-            'categories' => [
-                'Coving',
-                'Skirting',
-                'Wall Mouldings',
-                '3D Wall Covering',
-                'Coving Lightnin',
-                'Decorative Elements',
-                'Adhesives & Tools'
-            ]
+            'languages' => Language::all(),
+            'categories' => Category::all()
         ]);
     }
 }

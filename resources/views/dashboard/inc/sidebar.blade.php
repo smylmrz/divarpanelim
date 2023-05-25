@@ -150,17 +150,7 @@
                     </a>
                     <ul class="sub-menu children dropdown-menu">
                         <li>
-                            <a href="">
-                                Üst kateqoriyalar
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                Alt kateqoriyalar
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
+                            <a href="{{ route('dashboard.categories.index') }}">
                                 Bütün kateqoriyalar
                             </a>
                         </li>

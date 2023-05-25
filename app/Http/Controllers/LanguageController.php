@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Language;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -10,12 +11,10 @@ class LanguageController extends Controller
 {
     public function index(): View
     {
-        return view('dashboard.languages.index', [
-            'languages' => Language::all()
-        ]);
+        return view('dashboard.languages.index');
     }
 
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         Language::create([
             'name' => $request->name,
@@ -33,17 +32,17 @@ class LanguageController extends Controller
         ]);
     }
 
-    public function update(Language $language, Request $request)
+    public function update(Language $language, Request $request): RedirectResponse
     {
         $language->update([
             'name' => $request->name,
             'slug' => $request->slug
         ]);
 
-        return back()->with('success', 'Dil yeniləndi');
+        return redirect()->route('dashboard.languages.edit', $language->id)->with('success', 'Dil yeniləndi');
     }
 
-    public function destroy(Language $language)
+    public function destroy(Language $language): RedirectResponse
     {
         $language->delete();
 
