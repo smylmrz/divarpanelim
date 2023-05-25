@@ -1,8 +1,11 @@
 <header>
     <div class="border-b py-2">
         <div class="font-bold text-sm container mx-auto flex justify-between">
-            <div>
-                +994 50 123 45 67
+            <div class="flex">
+                <div class="border-r pr-2">
+                    +994 50 123 45 67
+                </div>
+                @include('partials.locale-switcher')
             </div>
             <div>
                 lorem ipsum dolor sit amet
@@ -30,7 +33,7 @@
 
     <div class="absolute top-[173px] w-full z-10 group bg-neutral-900 hover:bg-amber-400 duration-200">
         <div class="container mx-auto">
-            <ul class="flex justify-between duration-200 group-hover:text-black text-white text-lg font-bold">
+            <ul class="flex justify-between duration-200 group-hover:text-black text-white text-sm font-bold">
                 @foreach($categories as $category)
                     <li class="py-4 w-full hover:bg-amber-500 duration-200">
                         <a class="flex flex-col items-center" href="{{ route('categories.show', $category->slug) }}">

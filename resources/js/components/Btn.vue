@@ -1,5 +1,5 @@
 <template>
-    <component :is="is" class="group font-bold text-2xl px-8 py-2 duration-200" :class="btnStyle">
+    <component :is="is" class="flex group font-bold text-2xl px-8 py-4 duration-200" :class="btnStyle">
         <slot></slot>
     </component>
 </template>

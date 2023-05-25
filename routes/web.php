@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'index')->name('home');
+Route::get('/locale/{locale}', function($locale) {
+    session()->put('locale', $locale);
+    return redirect()->back();
+})->name('locale');
 
 Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function(){
 
@@ -29,6 +33,8 @@ Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function(){
         Route::resource('languages', \App\Http\Controllers\Admin\LanguageController::class);
         Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class);
         Route::resource('sliders', \App\Http\Controllers\Admin\SliderController::class);
+        Route::get('/slider-details', [\App\Http\Controllers\Admin\SliderDetailController::class, 'show'])->name('slider-details.show');
+        Route::put('/slider-details', [\App\Http\Controllers\Admin\SliderDetailController::class, 'update'])->name('slider-details.update');
     });
 
 });

@@ -93,7 +93,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Təsdiqlə</button>
+                    <button type="submit" class="btn btn-primary">Təsdiqlə</button>
                 </div>
             </form>
         </div>

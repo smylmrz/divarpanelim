@@ -23,5 +23,9 @@
         @yield('content')
     </main>
 </div>
+
+<script>
+    window.locale = '{{ app()->getLocale() }}';
+</script>
 </body>
 </html>

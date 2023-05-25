@@ -33,14 +33,14 @@
                     >
                     <ul class="sub-menu children dropdown-menu">
                         <li>
-                            <a href="{{ route('dashboard.sliders.index') }}">
-                                Slayderlər
+                            <i class="ti-menu"></i>
+                            <a href="{{ route('dashboard.slider-details.show') }}">
+                                Kontent
                             </a>
                         </li>
                         <li>
-                            <i class="ti-menu"></i>
-                            <a href="">
-                                {{ trans('global.deals_of_the_weak') }}
+                            <a href="{{ route('dashboard.sliders.index') }}">
+                                Slayderlər
                             </a>
                         </li>
                     </ul>
