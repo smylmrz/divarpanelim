@@ -109,15 +109,8 @@
                         </li>
                         <li>
                             <i class="ti-plus"></i>
-                            <a href="">
+                            <a href="{{ route('dashboard.products.index') }}">
                                 Əlavə et
-                            </a>
-                        </li>
-                        <li>
-                        <li>
-                            <i class="menu-icon ti-more-alt"></i>
-                            <a href="">
-                                Ölçülər
                             </a>
                         </li>
                         <li>
@@ -142,33 +135,33 @@
                 </li>
 
                 {{-- Blog --}}
-                <li class="menu-item-has-children dropdown">
-                    <a
-                        href="#"
-                        class="dropdown-toggle"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                    >
-                        <i class="menu-icon ti-marker"></i>
-                        Bloq
-                    </a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li>
-                            <a href="">
-                                Postlar
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+{{--                <li class="menu-item-has-children dropdown">--}}
+{{--                    <a--}}
+{{--                        href="#"--}}
+{{--                        class="dropdown-toggle"--}}
+{{--                        data-toggle="dropdown"--}}
+{{--                        aria-haspopup="true"--}}
+{{--                        aria-expanded="false"--}}
+{{--                    >--}}
+{{--                        <i class="menu-icon ti-marker"></i>--}}
+{{--                        Bloq--}}
+{{--                    </a>--}}
+{{--                    <ul class="sub-menu children dropdown-menu">--}}
+{{--                        <li>--}}
+{{--                            <a href="">--}}
+{{--                                Postlar--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
 
                 {{-- Popup --}}
-                <li>
-                    <a href="">
-                        <i class="menu-icon ti-announcement"></i>
-                        Popup
-                    </a>
-                </li>
+{{--                <li>--}}
+{{--                    <a href="">--}}
+{{--                        <i class="menu-icon ti-announcement"></i>--}}
+{{--                        Popup--}}
+{{--                    </a>--}}
+{{--                </li>--}}
 
                 {{-- Orders --}}
                 <li class=" {{ true ? "menu-item-has-children menu-item-chat" : "" }}">

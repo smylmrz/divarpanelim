@@ -14,10 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'index')->name('home');
+
 Route::get('/locale/{locale}', function($locale) {
     session()->put('locale', $locale);
     return redirect()->back();
 })->name('locale');
+
+Route::get('/orders/create/{product}', [\App\Http\Controllers\OrderController::class, 'create'])->name('orders.create');
 
 Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function(){
 
@@ -41,3 +44,4 @@ Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function(){
 });
 
 Route::get('/{slug}', [\App\Http\Controllers\CategoryController::class, 'show'])->name('categories.show');
+Route::get('/{category}/{product}', [\App\Http\Controllers\ProductController::class, 'show'])->name('products.show');

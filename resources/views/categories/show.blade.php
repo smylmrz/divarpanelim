@@ -10,7 +10,7 @@
         <div class="grid grid-cols-12 gap-5">
             @foreach($category->products as $product)
                 <div class="col-span-3">
-                    <a href="">
+                    <a title="{{ $product->name ?? $product->sku }}" href="{{ route('products.show', [$product->category->slug, $product->slug]) }}">
                         <div>
                             <img src="{{ asset($product->image) }}" alt="{{ $product->name }}">
                         </div>
@@ -18,7 +18,6 @@
                             <div class="space-y-1">
                                 <h4 class="font-bold">{{ $product->sku }}</h4>
                                 <div class="text-sm text-neutral-600">L {{ $product->length }} x H {{ $product->height }} x W {{ $product->width }} cm</div>
-                                <div class="text-xs text-neutral-600">Flex</div>
                             </div>
                             <div class="font-bold">₼{{ $product->price }} / <span class="text-xs">m</span></div>
                         </div>

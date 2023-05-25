@@ -22,6 +22,8 @@
     <main class="mt-16">
         @yield('content')
     </main>
+
+    @include('partials.footer')
 </div>
 
 <script>

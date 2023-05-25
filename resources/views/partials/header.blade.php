@@ -36,7 +36,7 @@
             <ul class="flex justify-between duration-200 group-hover:text-black text-white text-sm font-bold">
                 @foreach($categories as $category)
                     <li class="py-4 w-full hover:bg-amber-500 duration-200">
-                        <a class="flex flex-col items-center" href="{{ route('categories.show', $category->slug) }}">
+                        <a title="{{ $category->name }}" class="flex flex-col items-center" href="{{ route('categories.show', $category->slug) }}">
                             <span>
                                 {{ $category->name }}
                             </span>
