@@ -17,7 +17,8 @@
             <div class="col-span-6">
                 <div class="relative overflow-hidden border">
                     <TransitionGroup>
-                        <img class="w-full" :key="currentImage" :src="currentImage" alt="slider" />
+                        <div v-if="!isLoaded" class="skeleton"></div>
+                        <img class="w-full" @load="isLoaded = true" :key="currentImage" :src="currentImage" alt="slider" />
                     </TransitionGroup>
                     <div class="absolute bottom-0 left-0">
                         <SliderButton @click="prev">
@@ -45,6 +46,7 @@ import SliderButton from "./SliderButton.vue";
 
 const currentIndex = ref(0);
 const dir = ref(1);
+const isLoaded = ref(false);
 
 const images = [
     'https://www.oracdecor.com/media/assets/7/f/e/3/7fe32288f9ecdfb2c7fa06b156ad84e523d75e61_3dplayground23_track_7_63d153a17ca32.jpg',
@@ -53,6 +55,7 @@ const images = [
 ]
 
 const next = () => {
+    isLoaded.value = false
     dir.value = 1
     currentIndex.value++
     if (currentIndex.value > images.length - 1) {
@@ -61,6 +64,7 @@ const next = () => {
 }
 
 const prev = () => {
+    isLoaded.value = false
     dir.value = -1
     currentIndex.value--
     if (currentIndex.value < 0) {
@@ -76,7 +80,10 @@ const leaveTo = computed(() => `${dir.value * -120}px`)
 </script>
 
 <style scoped>
-
+.skeleton {
+    min-height: 746px;
+    background-color: #e2e8f0;
+}
 .v-enter-active,
 .v-leave-active {
     transition: all 0.5s ease;
