@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
 
         view()->share([
             'languages' => Language::all(),
-            'categories' => Category::all()
+            'categories' => Category::with('children')->get()
         ]);
     }
 }

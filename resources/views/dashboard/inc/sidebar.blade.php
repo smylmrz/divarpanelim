@@ -103,7 +103,7 @@
                     </a>
                     <ul class="sub-menu children dropdown-menu">
                         <li>
-                            <a href="">
+                            <a href="{{ route('dashboard.products.index') }}">
                                İdarə et
                             </a>
                         </li>
