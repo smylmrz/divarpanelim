@@ -22,6 +22,8 @@ Route::get('/locale/{locale}', function($locale) {
 
 Route::get('/orders/create/{product}', [\App\Http\Controllers\OrderController::class, 'create'])->name('orders.create');
 
+Route::post('/orders/store/{product}', [\App\Http\Controllers\OrderController::class, 'store'])->name('orders.store');
+
 Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function(){
 
     Route::get('/login', [\App\Http\Controllers\LoginController::class, 'index'])
