@@ -10,7 +10,7 @@ class ProductController extends Controller
     public function show($category, $product)
     {
         return view('products.show', [
-            'product' => Product::where('slug', $product)->firstOrFail()
+            'product' => Product::with('images')->where('slug', $product)->firstOrFail()
         ]);
     }
 }

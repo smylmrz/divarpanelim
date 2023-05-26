@@ -24,5 +24,13 @@
                 </a>
             </div>
         </div>
+
+        <div>
+            @foreach($product->images as $image)
+                <div>
+                    <img src="{{ asset($image->image) }}" alt="{{ $product->name ?? $product->sku }}">
+                </div>
+            @endforeach
+        </div>
     </section>
 @endsection

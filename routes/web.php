@@ -37,8 +37,11 @@ Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function(){
         Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class);
         Route::resource('sliders', \App\Http\Controllers\Admin\SliderController::class);
         Route::resource('products', \App\Http\Controllers\Admin\ProductController::class);
-        Route::get('/slider-details', [\App\Http\Controllers\Admin\SliderDetailController::class, 'show'])->name('slider-details.show');
-        Route::put('/slider-details', [\App\Http\Controllers\Admin\SliderDetailController::class, 'update'])->name('slider-details.update');
+        Route::get('product-images/{product}', [\App\Http\Controllers\Admin\ProductImageController::class, 'index'])->name('product-images.index');
+        Route::post('product-images/{product}', [\App\Http\Controllers\Admin\ProductImageController::class, 'store'])->name('product-images.store');
+        Route::delete('product-images/{productImage}', [\App\Http\Controllers\Admin\ProductImageController::class, 'destroy'])->name('product-images.destroy');
+        Route::get('slider-details', [\App\Http\Controllers\Admin\SliderDetailController::class, 'show'])->name('slider-details.show');
+        Route::put('slider-details', [\App\Http\Controllers\Admin\SliderDetailController::class, 'update'])->name('slider-details.update');
     });
 
 });
