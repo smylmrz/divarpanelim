@@ -9,8 +9,11 @@ class ProductController extends Controller
 {
     public function show($category, $product)
     {
+        $product = Product::with('images')->where('slug', $product)->firstOrFail();
+
         return view('products.show', [
-            'product' => Product::with('images')->where('slug', $product)->firstOrFail()
+            'product' => $product,
+            'products' => Product::where('category_id', $product->category_id)->whereNot('id', $product->id)->take(4)->get()
         ]);
     }
 }

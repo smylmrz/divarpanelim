@@ -150,18 +150,11 @@
 {{--                </li>--}}
 
                 {{-- Orders --}}
-                <li class=" {{ true ? "menu-item-has-children menu-item-chat" : "" }}">
-                    @if (true)
-                        <a data-unseen="1" href="">
-                            <i class="menu-icon ti-basketball"></i>
-                            Sifarişlər
-                        </a>
-                    @else
-                        <a href="">
-                            <i class="menu-icon ti-basketball"></i>
-                            Sifarişlər
-                        </a>
-                    @endif
+                <li>
+                    <a href="{{ route('dashboard.orders.index') }}">
+                        <i class="menu-icon ti-basketball"></i>
+                        Sifarişlər
+                    </a>
                 </li>
 
                 {{-- Email list --}}

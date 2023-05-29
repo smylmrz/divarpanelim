@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\OrderCreated;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
 
 class OrderController extends Controller
@@ -20,13 +23,16 @@ class OrderController extends Controller
 
     public function store(Product $product, Request $request): RedirectResponse
     {
-        $product->orders()->create([
+        $order = Order::create([
             'name' => $request->name,
             'phone' => $request->phone,
             'city' => $request->city,
             'address' => $request->address,
-            'note' => $request->note
+            'note' => $request->note,
+            'product_id' => $product->id
         ]);
+
+        Mail::to('smylmrz@gmail.com')->send(new OrderCreated($order));
 
         return redirect()->route('orders.create', $product->slug)->with('success', 'Order created successfully');
     }

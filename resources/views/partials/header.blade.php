@@ -13,7 +13,7 @@
         </div>
     </div>
 
-    <div class="grid grid-cols-12 py-5 mx-auto container">
+    <div class="grid grid-cols-12 items-center py-5 mx-auto container">
 
         <div class="col-span-3">
             @include('partials.search-form')
@@ -26,8 +26,18 @@
             <p class="text-sm text-gray-500">Premium home decors that work</p>
         </div>
 
-        <div class="col-span-3">
-            todo
+        <div class="flex justify-end col-span-3">
+            <ul class="font-bold flex gap-5">
+                <li>
+                    <a href="">About us</a>
+                </li>
+                <li>
+                    <a href="">Blog</a>
+                </li>
+                <li>
+                    <a href="">Contact</a>
+                </li>
+            </ul>
         </div>
     </div>
 

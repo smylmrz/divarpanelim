@@ -45,6 +45,7 @@ Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function(){
         Route::get('product-images/{product}', [\App\Http\Controllers\Admin\ProductImageController::class, 'index'])->name('product-images.index');
         Route::post('product-images/{product}', [\App\Http\Controllers\Admin\ProductImageController::class, 'store'])->name('product-images.store');
         Route::delete('product-images/{productImage}', [\App\Http\Controllers\Admin\ProductImageController::class, 'destroy'])->name('product-images.destroy');
+        Route::resource('orders', \App\Http\Controllers\Admin\OrderController::class)->only(['index', 'show']);
         Route::get('slider-details', [\App\Http\Controllers\Admin\SliderDetailController::class, 'show'])->name('slider-details.show');
         Route::put('slider-details', [\App\Http\Controllers\Admin\SliderDetailController::class, 'update'])->name('slider-details.update');
     });
