@@ -13,12 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'index')->name('home');
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/locale/{locale}', function($locale) {
     session()->put('locale', $locale);
     return redirect()->back();
 })->name('locale');
+
+Route::get('blog/{slug}', [\App\Http\Controllers\PostController::class, 'show'])->name('posts.show');
 
 Route::get('/orders/create/{product}', [\App\Http\Controllers\OrderController::class, 'create'])->name('orders.create');
 
@@ -39,6 +41,7 @@ Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function(){
         Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class);
         Route::resource('sliders', \App\Http\Controllers\Admin\SliderController::class);
         Route::resource('products', \App\Http\Controllers\Admin\ProductController::class);
+        Route::resource('posts', \App\Http\Controllers\Admin\PostController::class);
         Route::get('product-images/{product}', [\App\Http\Controllers\Admin\ProductImageController::class, 'index'])->name('product-images.index');
         Route::post('product-images/{product}', [\App\Http\Controllers\Admin\ProductImageController::class, 'store'])->name('product-images.store');
         Route::delete('product-images/{productImage}', [\App\Http\Controllers\Admin\ProductImageController::class, 'destroy'])->name('product-images.destroy');

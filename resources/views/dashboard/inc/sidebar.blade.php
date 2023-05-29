@@ -134,26 +134,12 @@
                     </ul>
                 </li>
 
-                {{-- Blog --}}
-{{--                <li class="menu-item-has-children dropdown">--}}
-{{--                    <a--}}
-{{--                        href="#"--}}
-{{--                        class="dropdown-toggle"--}}
-{{--                        data-toggle="dropdown"--}}
-{{--                        aria-haspopup="true"--}}
-{{--                        aria-expanded="false"--}}
-{{--                    >--}}
-{{--                        <i class="menu-icon ti-marker"></i>--}}
-{{--                        Bloq--}}
-{{--                    </a>--}}
-{{--                    <ul class="sub-menu children dropdown-menu">--}}
-{{--                        <li>--}}
-{{--                            <a href="">--}}
-{{--                                Postlar--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
-{{--                </li>--}}
+                <li>
+                    <a href="{{ route('dashboard.posts.index') }}">
+                        <i class="menu-icon ti-marker"></i>
+                        Bloq
+                    </a>
+                </li>
 
                 {{-- Popup --}}
 {{--                <li>--}}
