@@ -3,10 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="@yield('description', 'Divarpanelim.az')">
+    <meta name="description" content="@yield('description', $settings->description)">
+    <meta name="keywords" content="{{ $settings->keywords }}">
 
     <title>
-        @yield('title', 'Divar Panelim')
+        @yield('title', $settings->title)
     </title>
 
     <!-- Fonts -->

@@ -4,8 +4,8 @@
         <div class="grid grid-cols-12 gap-10 container mx-auto">
             <div  class="col-span-6">
                 <div v-if="details">
-                    <div class="space-y-10 pt-20 mb-10">
-                        <h1 class="font-pfd text-8xl font-bold">
+                    <div class="space-y-10 mb-10">
+                        <h1 class="font-pfd text-8xl font-black">
                             {{ details.title[locale] }}
                         </h1>
                         <p class="text-xl text-neutral-500">

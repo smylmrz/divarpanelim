@@ -6,7 +6,7 @@
     <section class="py-20">
         <div class="space-y-5 container mx-auto">
             <div>
-                <img src="{{ asset($post->image) }}" alt="{{ $post->title }}">
+                <img class="w-full" src="{{ asset($post->image) }}" alt="{{ $post->title }}">
             </div>
 
             <h1 class="font-pfd text-4xl font-bold">{{ $post->title }}</h1>

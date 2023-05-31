@@ -12,3 +12,7 @@ input {
 .font-pfd {
     font-family: 'Playfair Display', serif;
 }
+
+.social-icon {
+    @apply fill-neutral-500 hover:fill-amber-400
+}

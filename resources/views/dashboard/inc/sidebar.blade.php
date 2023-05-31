@@ -3,6 +3,13 @@
     <nav class="navbar navbar-expand-sm navbar-default">
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav">
+                {{-- Socials --}}
+                <li>
+                    <a href="{{ route('dashboard.settings.index') }}">
+                        <i class="menu-icon ti-settings"></i>
+                        Parametrlər
+                    </a>
+                </li>
                 <li>
                     <a href="{{ route('dashboard.index') }}">
                         <i class="menu-icon ti-bar-chart-alt"></i>
@@ -82,7 +89,7 @@
 
                 {{-- Socials --}}
                 <li>
-                    <a href="">
+                    <a href="{{ route('dashboard.socials.index') }}">
                         <i class="menu-icon ti-instagram"></i>
                         Sosial
                     </a>

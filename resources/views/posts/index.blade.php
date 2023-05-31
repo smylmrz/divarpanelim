@@ -1,8 +1,7 @@
 @extends('master')
+@section('title', 'Blog')
 
 @section('content')
-    <Slider></Slider>
-
     @if(count($posts))
         <section class="py-20">
             <div class="container mx-auto">

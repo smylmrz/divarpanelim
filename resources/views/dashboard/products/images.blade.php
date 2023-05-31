@@ -20,7 +20,8 @@
                             <table id="bootstrap-data-table" class="table">
                                 <thead>
                                 <tr>
-                                    <th></th>
+                                    <th>Şəkil</th>
+                                    <th>İnterier</th>
                                     <th></th>
                                 </tr>
                                 </thead>
@@ -29,6 +30,9 @@
                                     <tr>
                                         <td>
                                             <img loading="lazy" width="100" src="{{asset($image->image)}}">
+                                        </td>
+                                        <td>
+                                            {{ $image->is_interior ? 'Hə' : 'Yox'  }}
                                         </td>
                                         <td>
                                             <form action="{{ route('dashboard.product-images.destroy', $image->id) }}" method="POST">
@@ -81,6 +85,11 @@
                     <div class="form-group">
                         <label>Şəkil(lər) <span class="required">*</span></label>
                         <input type="file" class="form-control" multiple name="images[]" />
+                    </div>
+
+                    <div class="form-group">
+                        <input type="checkbox" name="interior" />
+                        <label> İnterier (Məhsulun altında yerləşir)</label>
                     </div>
 
                 </div>

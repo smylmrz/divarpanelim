@@ -30,7 +30,8 @@ class ProductImageController extends Controller
             $imagePath = FileManager::upload($image, 'uploads/products/', $slug);
 
             $product->images()->create([
-                'image' => $imagePath
+                'image' => $imagePath,
+                'is_interior' => (bool)$request->interior
             ]);
         }
 

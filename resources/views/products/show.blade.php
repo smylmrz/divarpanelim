@@ -5,9 +5,9 @@
 
 @section('content')
     <section class="container py-20 mx-auto">
-        <div class="grid grid-cols-12 gap-10">
+        <div class="grid grid-cols-12 mb-20 gap-10">
             <div class="col-span-6">
-                <img src="{{ asset($product->image) }}" alt="{{ $product->name }}">
+                <product-slider :images="{{ $images }}"></product-slider>
             </div>
             <div class="col-span-6">
                 <div class="space-y-2 mb-5">
@@ -30,13 +30,14 @@
         </div>
 
         <div>
-            @foreach($product->images as $image)
+            @foreach($interiors as $image)
                 <div>
                     <img src="{{ asset($image->image) }}" alt="{{ $product->name ?? $product->sku }}">
                 </div>
             @endforeach
         </div>
 
+        @if(count($products))
         <div class="mt-20">
             <h1 class="max-w-fit mx-auto pb-8 border-b-2 border-black text-center font-pfd font-black text-6xl">
                 Related products
@@ -66,5 +67,6 @@
                 @endforeach
             </div>
         </div>
+        @endif
     </section>
 @endsection

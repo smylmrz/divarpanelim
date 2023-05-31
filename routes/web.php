@@ -15,16 +15,23 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::view('about', 'about')->name('about');
+Route::view('contact', 'contact')->name('contact');
+
 Route::get('/locale/{locale}', function($locale) {
     session()->put('locale', $locale);
     return redirect()->back();
 })->name('locale');
 
-Route::get('blog/{slug}', [\App\Http\Controllers\PostController::class, 'show'])->name('posts.show');
 
-Route::get('/orders/create/{product}', [\App\Http\Controllers\OrderController::class, 'create'])->name('orders.create');
+Route::group(['prefix' => 'blog'], function(){
+    Route::get('/', [\App\Http\Controllers\PostController::class, 'index'])->name('posts.index');
+    Route::get('/{slug}', [\App\Http\Controllers\PostController::class, 'show'])->name('posts.show');
+});
 
-Route::post('/orders/store/{product}', [\App\Http\Controllers\OrderController::class, 'store'])->name('orders.store');
+Route::get('orders/create/{product}', [\App\Http\Controllers\OrderController::class, 'create'])->name('orders.create');
+
+Route::post('orders/store/{product}', [\App\Http\Controllers\OrderController::class, 'store'])->name('orders.store');
 
 Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function(){
 
@@ -48,9 +55,13 @@ Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function(){
         Route::resource('orders', \App\Http\Controllers\Admin\OrderController::class)->only(['index', 'show']);
         Route::get('slider-details', [\App\Http\Controllers\Admin\SliderDetailController::class, 'show'])->name('slider-details.show');
         Route::put('slider-details', [\App\Http\Controllers\Admin\SliderDetailController::class, 'update'])->name('slider-details.update');
+        Route::view('socials', 'dashboard.socials.index')->name('socials.index');
+        Route::post('socials', [\App\Http\Controllers\Admin\SocialController::class, 'update'])->name('socials.update');
+        Route::view('settings', 'dashboard.settings')->name('settings.index');
+        Route::post('settings', [\App\Http\Controllers\Admin\SettingsController::class, 'update'])->name('settings.update');
     });
 
 });
 
-Route::get('/{slug}', [\App\Http\Controllers\CategoryController::class, 'show'])->name('categories.show');
-Route::get('/{category}/{product}', [\App\Http\Controllers\ProductController::class, 'show'])->name('products.show');
+Route::get('{slug}', [\App\Http\Controllers\CategoryController::class, 'show'])->name('categories.show');
+Route::get('{category}/{product}', [\App\Http\Controllers\ProductController::class, 'show'])->name('products.show');
