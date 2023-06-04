@@ -20,6 +20,7 @@ class Settings extends Model
         'copyright',
         'phone',
         'address',
+        'address_url',
         'keywords'
     ];
 

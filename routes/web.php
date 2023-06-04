@@ -59,9 +59,11 @@ Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function(){
         Route::post('socials', [\App\Http\Controllers\Admin\SocialController::class, 'update'])->name('socials.update');
         Route::view('settings', 'dashboard.settings')->name('settings.index');
         Route::post('settings', [\App\Http\Controllers\Admin\SettingsController::class, 'update'])->name('settings.update');
-    });
 
+        Route::resource('translations', \App\Http\Controllers\Admin\TranslationController::class)->except(['destroy']);
+    });
 });
 
-Route::get('{slug}', [\App\Http\Controllers\CategoryController::class, 'show'])->name('categories.show');
+Route::get('/products', [\App\Http\Controllers\ProductController::class, 'index'])->name('products.index');
+Route::get('{slug}', [\App\Http\Controllers\ProductController::class, 'category'])->name('products.category');
 Route::get('{category}/{product}', [\App\Http\Controllers\ProductController::class, 'show'])->name('products.show');

@@ -20,7 +20,7 @@
 <div id="app">
     @include('partials.header')
 
-    <main class="mt-16">
+    <main class="mt-5 lg:mt-16">
         @yield('content')
     </main>
 
@@ -30,5 +30,7 @@
 <script>
     window.locale = '{{ app()->getLocale() }}';
 </script>
+
+@yield('script')
 </body>
 </html>

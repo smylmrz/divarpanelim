@@ -25,6 +25,7 @@
                                     <th>Qiymət (AZN)</th>
                                     <th>Kod</th>
                                     <th>Kateqoriya</th>
+                                    <th>Material</th>
                                     <th>Şəkillər</th>
                                     <th></th>
                                 </tr>
@@ -39,6 +40,7 @@
                                         <td>{{$p->price}}</td>
                                         <td>{{$p->sku}}</td>
                                         <td>{{$p->category->name}}</td>
+                                        <td>{{$p->material->name}}</td>
                                         <td>
                                             <a href="{{ route('dashboard.product-images.index', $p->id) }}">
                                                 Keç

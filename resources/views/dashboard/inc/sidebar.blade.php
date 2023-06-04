@@ -116,7 +116,7 @@
                         </li>
                         <li>
                             <i class="ti-plus"></i>
-                            <a href="{{ route('dashboard.products.index') }}">
+                            <a href="{{ route('dashboard.products.create') }}">
                                 Əlavə et
                             </a>
                         </li>
@@ -174,7 +174,7 @@
 
                 {{-- Translations --}}
                 <li>
-                    <a href="">
+                    <a href="{{ route('dashboard.translations.index') }}">
                         <i class="menu-icon fas fa-language"></i>
                         Tərcümələr
                     </a>

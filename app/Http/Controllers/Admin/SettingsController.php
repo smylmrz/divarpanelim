@@ -52,6 +52,7 @@ class SettingsController extends Controller
             ],
             'phone' => $request->phone,
             'keywords' => $request->keywords,
+            'address_url' => $request->address_url,
             'logo' => $logo,
             'footer_logo' => $footer_logo
         ]);

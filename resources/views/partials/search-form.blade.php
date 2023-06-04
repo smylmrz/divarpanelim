@@ -1,7 +1,7 @@
-<form action="" class="group relative flex items-center">
+<form action="{{ route('products.index') }}" class="group relative flex items-center" method="get">
     <input
         type="text"
-        placeholder="What can we help you find?"
+        placeholder="{{ trans('global.search') }}"
         class="rounded-full border-2 border-neutral-500 p-4 w-full focus:outline-none focus:border-amber-400"
         name="search"
     >

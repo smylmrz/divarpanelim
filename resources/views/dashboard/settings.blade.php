@@ -80,6 +80,17 @@
                             @endforeach
                         </div>
 
+                        <div class="form-group">
+                            <label>Adres linki<span class="required">*</span></label>
+                            <input
+                                type="text"
+                                required
+                                class="form-control"
+                                value="{{ $settings->address_url }}"
+                                name="address_url"
+                            >
+                        </div>
+
                         <div class="row">
                             @foreach($languages as $l)
                                 <div class="col-md-4">

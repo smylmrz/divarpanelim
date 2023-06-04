@@ -24,6 +24,7 @@ class Product extends Model
         'width',
         'image',
         'category_id',
+        'material_id',
     ];
 
     public $translatable = [
@@ -34,6 +35,11 @@ class Product extends Model
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function material(): BelongsTo
+    {
+        return $this->belongsTo(Material::class);
     }
 
     public function images(): HasMany

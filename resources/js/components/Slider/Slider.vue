@@ -1,18 +1,19 @@
 <template>
-    <section class="relative py-20">
+    <section class="px-5 lg:px-0 relative lg:py-20">
 
-        <div class="grid grid-cols-12 gap-10 container mx-auto">
-            <div  class="col-span-6">
+        <div class="space-y-5 lg:space-y-0 lg:grid grid-cols-12 gap-10 container mx-auto">
+
+            <div class="col-span-6">
                 <div v-if="details">
                     <div class="space-y-10 mb-10">
-                        <h1 class="font-pfd text-8xl font-black">
+                        <h1 class="font-pfd text-6xl leading-none lg:text-8xl font-black">
                             {{ details.title[locale] }}
                         </h1>
-                        <p class="text-xl text-neutral-500">
+                        <p class="lg:text-xl text-neutral-500">
                             {{ details.content[locale] }}
                         </p>
                     </div>
-                    <div class="mt-10 flex items-center gap-10">
+                    <div class="mt-10 lg:flex items-center gap-10">
                         <Btn is="a" type="primary" :href="details.primary_action_url">
                             {{ details.primary_action_text[locale] }}
                         </Btn>
@@ -26,6 +27,7 @@
                 </div>
                 <Placeholder v-else />
             </div>
+
             <div class="col-span-6">
                 <div class="relative overflow-hidden border">
                     <TransitionGroup>
@@ -56,7 +58,7 @@ import axios from "axios";
 import {ref, computed, onMounted} from "vue";
 import SliderButton from "./SliderButton.vue";
 import Btn from "../Btn.vue";
-import Placeholder from "@/components/Slider/Placeholder.vue";
+import Placeholder from "./Placeholder.vue";
 
 const details = ref(null)
 
@@ -122,7 +124,13 @@ onMounted(() => {
 
 <style scoped>
 .skeleton {
-    min-height: 746px;
+    min-height: 372px;
+}
+
+@media screen and (min-width: 400px) {
+    .skeleton {
+        min-height: 746px;
+    }
 }
 .v-enter-active,
 .v-leave-active {
