@@ -40,7 +40,7 @@ Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function(){
 
     Route::post('/login', [\App\Http\Controllers\LoginController::class, 'attempt'])->name('login.attempt');
 
-    Route::group(['middleware' => 'auth'], function() {
+    Route::group(['middleware' => 'admin'], function() {
         Route::get('/logout', [\App\Http\Controllers\LoginController::class, 'logout'])->name('logout');
         Route::get('/', [\App\Http\Controllers\AdminController::class, 'index'])->name('index');
 

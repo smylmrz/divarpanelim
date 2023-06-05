@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('image');
             $table->foreignId('category_id')->constrained('categories');
             $table->foreignId('material_id')->constrained('materials');
+            $table->string('design')->nullable();
             $table->timestamps();
         });
     }

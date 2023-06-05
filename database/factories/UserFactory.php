@@ -22,6 +22,8 @@ class UserFactory extends Factory
             'email' => 'fardi@divarpanelim.az',
             'password' => bcrypt('fardidp0123'),
             'remember_token' => Str::random(10),
+            'is_verified' => 1,
+            'is_admin' => 1
         ];
     }
 
