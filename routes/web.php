@@ -15,6 +15,20 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::group(['prefix' => 'login', 'middleware' => 'guest'], function (){
+    Route::get('/', [\App\Http\Controllers\LoginController::class, 'index'])->name('login');
+    Route::post('/', [\App\Http\Controllers\LoginController::class, 'attempt'])->name('login.attempt');
+});
+
+Route::group(['prefix' => 'register', 'middleware' => 'guest'], function (){
+    Route::get('/', [\App\Http\Controllers\RegisterController::class, 'index'])->name('register');
+    Route::post('/', [\App\Http\Controllers\RegisterController::class, 'handle'])->name('register.handle');
+    Route::get('/success/{user}', [\App\Http\Controllers\RegisterController::class, 'success'])->name('register.success');
+});
+
+
+Route::view('/register', 'auth.register')->name('register');
+
 Route::view('about', 'about')->name('about');
 Route::view('contact', 'contact')->name('contact');
 
@@ -23,6 +37,10 @@ Route::get('/locale/{locale}', function($locale) {
     return redirect()->back();
 })->name('locale');
 
+Route::group(['prefix' => 'designs', 'as' => 'designs.', 'middleware' => 'auth'], function() {
+    Route::get('/', [\App\Http\Controllers\ProductController::class, 'designs'])->name('index');
+    Route::get('/{slug}', [\App\Http\Controllers\ProductController::class, 'design'])->name('show');
+});
 
 Route::group(['prefix' => 'blog'], function(){
     Route::get('/', [\App\Http\Controllers\PostController::class, 'index'])->name('posts.index');
@@ -35,14 +53,14 @@ Route::post('orders/store/{product}', [\App\Http\Controllers\OrderController::cl
 
 Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function(){
 
-    Route::get('/login', [\App\Http\Controllers\LoginController::class, 'index'])
+    Route::get('/login', [\App\Http\Controllers\Admin\LoginController::class, 'index'])
         ->middleware('guest')->name('login');
 
-    Route::post('/login', [\App\Http\Controllers\LoginController::class, 'attempt'])->name('login.attempt');
+    Route::post('/login', [\App\Http\Controllers\Admin\LoginController::class, 'attempt'])->name('login.attempt');
 
     Route::group(['middleware' => 'admin'], function() {
-        Route::get('/logout', [\App\Http\Controllers\LoginController::class, 'logout'])->name('logout');
-        Route::get('/', [\App\Http\Controllers\AdminController::class, 'index'])->name('index');
+        Route::get('/logout', [\App\Http\Controllers\Admin\LoginController::class, 'logout'])->name('logout');
+        Route::get('/', [\App\Http\Controllers\Admin\AdminController::class, 'index'])->name('index');
 
         Route::resource('languages', \App\Http\Controllers\Admin\LanguageController::class);
         Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class);
@@ -61,6 +79,8 @@ Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function(){
         Route::post('settings', [\App\Http\Controllers\Admin\SettingsController::class, 'update'])->name('settings.update');
 
         Route::resource('translations', \App\Http\Controllers\Admin\TranslationController::class)->except(['destroy']);
+        Route::resource('users', \App\Http\Controllers\Admin\UserController::class)->only(['index', 'show']);
+        Route::get('/users/verify/{user}', [\App\Http\Controllers\Admin\UserController::class, 'verify'])->name('users.verify');
     });
 });
 

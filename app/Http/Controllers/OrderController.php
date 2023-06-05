@@ -32,7 +32,7 @@ class OrderController extends Controller
             'product_id' => $product->id
         ]);
 
-        Mail::to('smylmrz@gmail.com')->send(new OrderCreated($order));
+        Mail::to('fard@divarpanelim.az')->send(new OrderCreated($order));
 
         return redirect()->route('orders.create', $product->slug)->with('success', 'Order created successfully');
     }

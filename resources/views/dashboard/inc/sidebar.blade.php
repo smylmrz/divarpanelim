@@ -164,6 +164,14 @@
                     </a>
                 </li>
 
+                {{-- users --}}
+                <li>
+                    <a href="{{ route('dashboard.users.index') }}">
+                        <i class="menu-icon ti-basketball"></i>
+                        İstifadəçilər
+                    </a>
+                </li>
+
                 {{-- Email list --}}
                 <li>
                     <a href="">

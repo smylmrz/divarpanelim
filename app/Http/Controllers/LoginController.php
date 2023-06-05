@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -9,24 +10,17 @@ class LoginController extends Controller
 {
     public function index(): View
     {
-        return view('dashboard.login');
+        return view('auth.login');
     }
 
-    public function attempt(Request $request)
+    public function attempt(Request $request): RedirectResponse
     {
         $credentials = $request->only('email', 'password');
 
         if (auth()->attempt($credentials)) {
-            return redirect()->route('dashboard.index');
+            return redirect()->intended('/');
         }
 
-        return redirect()->route('dashboard.login')->with('error', 'Invalid credentials');
-    }
-
-    public function logout(): \Illuminate\Http\RedirectResponse
-    {
-        auth()->logout();
-
-        return redirect()->route('dashboard.login');
+        return redirect()->route('login')->with('error', 'Invalid credentials');
     }
 }

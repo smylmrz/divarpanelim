@@ -68,4 +68,22 @@ class ProductController extends Controller
             'products' => Product::where('category_id', $product->category_id)->whereNot('id', $product->id)->take(4)->get()
         ]);
     }
+
+    public function designs(): View
+    {
+        return view('designs.index', [
+            'products' => Product::all(),
+        ]);
+    }
+
+    public function design($slug): View
+    {
+        $product = Product::with(['images', 'material'])->where('slug', $slug)->firstOrFail();
+
+        return view('designs.show', [
+            'product' => $product,
+            'interiors' => $product->images()->where('is_interior', 1)->get(),
+            'images' => $product->images()->where('is_interior', 0)->select('image')->get()->push((object) ['image' => $product->image]),
+        ]);
+    }
 }

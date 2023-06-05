@@ -25,6 +25,7 @@ class Product extends Model
         'image',
         'category_id',
         'material_id',
+        'design'
     ];
 
     public $translatable = [

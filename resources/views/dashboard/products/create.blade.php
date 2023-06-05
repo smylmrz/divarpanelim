@@ -85,26 +85,19 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="">Şəkil (1x1)</label>
-                                            <input type="file" required class="form-control" name="image">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="">Kateqoriya <span class="required">*</span></label>
                                             <select required name="category_id" class="form-control">
                                                 <option selected></option>
                                                 @foreach ($categories as $c)
-                                                        <option value="{{ $c->id }}">{{ $c->name }}</option>
+                                                    <option value="{{ $c->id }}">{{ $c->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
                                     </div>
 
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="">Material <span class="required">*</span></label>
                                             <select required name="material_id" class="form-control">
@@ -115,6 +108,23 @@
                                             </select>
                                         </div>
                                     </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="">Şəkil (1x1) <span class="required">*</span></label>
+                                            <input type="file" required class="form-control" name="image">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="">Dizayn</label>
+                                            <input type="file" class="form-control" name="design">
+                                        </div>
+                                    </div>
+
                                 </div>
 
                                 <button class="btn btn-primary">

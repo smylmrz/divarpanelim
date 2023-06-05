@@ -18,7 +18,6 @@
                                     <ul class="list-unstyled">
                                         <li>{{ $order->name }}</li>
                                         <li>{{ $order->city . ', ' . $order->address }}</li>
-                                        <li>{{ $order->postal_code }}</li>
                                         <li>{{ $order->phone }}</li>
                                     </ul>
                                 </div>

@@ -12,8 +12,8 @@
         ],
         [
             "name" => trans("global.for_designers"),
-            "route" => "home",
-            "path" => "/projects"
+            "route" => "designs.index",
+            "path" => "/designs"
         ],
         [
             "name" => trans("global.contact"),

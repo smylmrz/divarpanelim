@@ -26,9 +26,18 @@ class ProductController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $imagePath = FileManager::upload($request->file('image'), 'uploads/products/', $request->slug);
+
+        $designPath = '';
+
+//        if($request->hasFile('design')) {
+//           $design = $request->file('design');
+//           $designName = '/uploads/products/' . $request->slug . '.' . $design->extension();
+//           $design->move(public_path('uploads/products'), $designName);
+//        }
+
 
         Product::create([
             'name' => [
@@ -50,6 +59,7 @@ class ProductController extends Controller
             'length' => $request->length,
             'width' => $request->width,
             'height' => $request->height,
+            'design' => $designPath
         ]);
 
         return redirect()->route('dashboard.products.index')->with('success', 'Məhsul əlavə edildi');
@@ -68,10 +78,16 @@ class ProductController extends Controller
     public function update(Request $request, Product $product): RedirectResponse
     {
         $imagePath = $product->image;
+        $designPath = $product->design;
 
         if ($request->hasFile('image')) {
             $imagePath = FileManager::upload($request->file('image'), 'uploads/products/', $request->slug);
         }
+
+//        if($request->hasFile('design')) {
+//            $designPath = FileManager::upload($request->file('design'), 'uploads/products/', $request->slug, 'zip');
+//        }
+
 
         $product->update([
             'name' => [
@@ -93,6 +109,7 @@ class ProductController extends Controller
             'length' => $request->length,
             'width' => $request->width,
             'height' => $request->height,
+            'design' => $designPath
         ]);
 
         return redirect()->route('dashboard.products.edit', $product->id)->with('success', 'Məhsul yeniləndi');
