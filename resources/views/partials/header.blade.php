@@ -38,6 +38,25 @@
                     </a>
                 </div>
                 @include('partials.locale-switcher')
+                <div class="border-l ml-2 pl-2">
+                    @auth()
+                        <a href="{{ route('logout') }}">
+                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path opacity="0.5" d="M8.00195 6C8.01395 3.825 8.11095 2.647 8.87895 1.879C9.75795 1 11.172 1 14 1H15C17.829 1 19.243 1 20.122 1.879C21 2.757 21 4.172 21 7V15C21 17.828 21 19.243 20.122 20.121C19.242 21 17.829 21 15 21H14C11.172 21 9.75795 21 8.87895 20.121C8.11095 19.353 8.01395 18.175 8.00195 16" stroke="#FBBF24" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M14 11H1M1 11L4.5 8M1 11L4.5 14" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    @endauth
+
+                    @guest()
+                        <a href="{{ route('login') }}">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path opacity="0.5" d="M9 17C11.1217 17 13.1566 16.1571 14.6569 14.6569C16.1571 13.1566 17 11.1217 17 9C17 6.87827 16.1571 4.84344 14.6569 3.34315C13.1566 1.84285 11.1217 1 9 1" stroke="#FBBF24" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M1 9H11M11 9L8 6M11 9L8 12" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    @endguest
+                </div>
             </div>
             <div class="flex gap-1">
                 <svg class="h-4" width="16" height="22" viewBox="0 0 16 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -58,7 +77,7 @@
             @include('partials.search-form')
         </div>
 
-        <div class="col-span-6 lg:text-center space-y-2">
+        <div class="col-span-8 lg:col-span-6 lg:text-center space-y-2">
             <a title="{{ $settings->title }}" class="block font-pfd text-6xl font-black" href="{{ route('home') }}">
                 <img class="w-56 lg:w-96 lg:mx-auto" src="{{ asset($settings->logo) }}" alt="{{ $settings->title }}">
             </a>
@@ -81,20 +100,22 @@
             </ul>
         </div>
 
-        <div class="flex justify-end lg:hidden col-span-6">
+        <div class="flex justify-end lg:hidden col-span-4">
             <mobile-menu
                 :links="{{ json_encode($links) }}"
                 address="{{ $settings->address }}"
                 phone="{{ $settings->phone }}"
                 :languages="{{ $languages }}"
+                :categories="{{ $categories }}"
                 tagline="{{ $settings->tagline }}"
+                :is-logged-in="{{ json_encode(auth()->id()) }}"
             >
 
             </mobile-menu>
         </div>
     </div>
 
-    <div class="px-5 lg:px-0 static lg:absolute top-[173px] w-full z-10 group lg:bg-neutral-900 lg:hover:bg-amber-400 duration-200">
+    <div class="lg:px-0 hidden lg:block lg:absolute lg:top-[173px] w-full z-10 group lg:bg-neutral-900 lg:hover:bg-amber-400 duration-200">
         <div class="container mx-auto">
             <ul class="flex gap-2.5 lg:gap-0 flex-wrap lg:flex-nowrap lg:justify-between duration-200 lg:group-hover:text-black lg:text-white lg:text-sm font-bold">
                 @foreach($categories as $category)

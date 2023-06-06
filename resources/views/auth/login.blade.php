@@ -3,7 +3,7 @@
 @section('content')
 
     <section class="py-10 lg:py-20 container mx-auto px-5 lg:px-0">
-        <h1 class="max-w-fit mx-auto pb-8 border-b-2 border-black text-center font-pfd font-black text-2xl lg:text-6xl">
+        <h1 class="max-w-fit mx-auto pb-4 lg:pb-8 border-b-2 border-black text-center font-pfd font-black text-2xl lg:text-6xl">
             {{ trans('global.login') }}
         </h1>
 

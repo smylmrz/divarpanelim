@@ -25,7 +25,7 @@ class RegisterController extends Controller
             'password' => bcrypt($request->password)
         ]);
 
-        Mail::to('fard@divarpanelim.az')->send(new UserCreated($user));
+        Mail::to('contact@divarpanelim.az')->send(new UserCreated($user));
 
         return redirect()->route('register.success', [
             'user' => $user

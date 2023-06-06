@@ -6,7 +6,7 @@
 @section('content')
     <section class="py-10 lg:py-20 space-y-10">
 
-        <h1 class="max-w-fit mx-auto pb-8 border-b-2 border-black text-center font-pfd font-black text-6xl">{{ $category->name }}</h1>
+        <h1 class="max-w-fit mx-auto pb-4 lg:pb-8 border-b-2 border-black text-center font-pfd font-black text-2xl lg:text-6xl">{{ $category->name }}</h1>
 
         <form class="px-5 lg:px-0 bg-neutral-100 py-5">
             <div class="flex flex-col lg:flex-row space-y-10 lg:space-y-0 lg:items-center lg:justify-between container mx-auto">

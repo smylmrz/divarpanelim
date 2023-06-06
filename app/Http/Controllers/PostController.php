@@ -17,7 +17,7 @@ class PostController extends Controller
 
     public function show($slug): View
     {
-        $post = Post::whereSlug($slug)->isPublished()->firstOrFail();
+        $post = Post::isPublished()->where('slug', $slug)->firstOrFail();
 
         $post->increment('views');
         $post->update();

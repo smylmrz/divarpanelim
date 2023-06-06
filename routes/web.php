@@ -20,12 +20,13 @@ Route::group(['prefix' => 'login', 'middleware' => 'guest'], function (){
     Route::post('/', [\App\Http\Controllers\LoginController::class, 'attempt'])->name('login.attempt');
 });
 
+Route::get('/logout', [\App\Http\Controllers\LoginController::class, 'logout'])->name('logout')->middleware('auth');
+
 Route::group(['prefix' => 'register', 'middleware' => 'guest'], function (){
     Route::get('/', [\App\Http\Controllers\RegisterController::class, 'index'])->name('register');
     Route::post('/', [\App\Http\Controllers\RegisterController::class, 'handle'])->name('register.handle');
     Route::get('/success/{user}', [\App\Http\Controllers\RegisterController::class, 'success'])->name('register.success');
 });
-
 
 Route::view('/register', 'auth.register')->name('register');
 
