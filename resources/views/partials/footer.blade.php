@@ -61,7 +61,7 @@
                     <ul class="font-medium flex flex-col lg:flex-row flex-wrap gap-2">
                         @foreach($categories as $category)
                             <li>
-                                <a class="text-neutral-500 hover:text-neutral-300" href="{{ route('products.category', $category->slug) }}">
+                                <a class="text-neutral-500 hover:text-neutral-300" href="{{ route('products.index', ['category' => $category->slug]) }}">
                                     {{ $category->name }}
                                 </a>
                             </li>

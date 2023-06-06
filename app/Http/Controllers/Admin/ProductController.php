@@ -30,7 +30,7 @@ class ProductController extends Controller
     {
         $imagePath = FileManager::upload($request->file('image'), 'uploads/products/', $request->slug);
 
-        $designPath = '';
+        $designPath = null;
 
 //        if($request->hasFile('design')) {
 //           $design = $request->file('design');

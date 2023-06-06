@@ -16,3 +16,8 @@ input {
 .social-icon {
     @apply fill-neutral-500 hover:fill-amber-400
 }
+
+input[type="checkbox"] {
+    accent-color: #fbbf24;
+}
+

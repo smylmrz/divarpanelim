@@ -85,6 +85,8 @@ Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function(){
     });
 });
 
-Route::get('/products', [\App\Http\Controllers\ProductController::class, 'index'])->name('products.index');
-Route::get('{slug}', [\App\Http\Controllers\ProductController::class, 'category'])->name('products.category');
-Route::get('{category}/{product}', [\App\Http\Controllers\ProductController::class, 'show'])->name('products.show');
+Route::group(['prefix' => 'products', 'as' => 'products.'], function() {
+    Route::get('/', [\App\Http\Controllers\ProductController::class, 'index'])->name('index');
+    Route::get('/{slug}', [\App\Http\Controllers\ProductController::class, 'show'])->name('show');
+});
+

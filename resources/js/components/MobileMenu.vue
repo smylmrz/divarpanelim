@@ -48,7 +48,7 @@
                     <ul class="flex flex-wrap gap-3">
                         <li v-for="category in categories">
                             <a
-                                :href="`/${category.slug}`"
+                                :href="`/products?category=${category.slug}`"
                                 class="font-medium"
                                 :class="path === category.slug && '!font-bold px-2 py-1 bg-amber-400'"
                             >
