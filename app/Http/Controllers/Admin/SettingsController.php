@@ -15,6 +15,7 @@ class SettingsController extends Controller
 
         $logo = $settings->logo;
         $footer_logo = $settings->footer_logo;
+        $info_bg = $settings->info_bg;
 
         if ($request->hasFile('logo')) {
             $logo = FileManager::upload($request->logo, 'uploads/', 'logo');
@@ -22,6 +23,10 @@ class SettingsController extends Controller
 
         if ($request->hasFile('footer_logo')) {
             $footer_logo = FileManager::upload($request->footer_logo, 'uploads/', 'footer-logo');
+        }
+
+        if ($request->hasFile('info_bg')) {
+            $info_bg = FileManager::upload($request->info_bg, 'uploads/', 'info-bg');
         }
 
         $settings->update([
@@ -40,6 +45,11 @@ class SettingsController extends Controller
                 'en' => $request->description_en,
                 'ru' => $request->description_ru,
             ],
+            'about' => [
+                'az' => $request->about_az,
+                'en' => $request->about_en,
+                'ru' => $request->about_ru,
+            ],
             'address' => [
                 'az' => $request->address_az,
                 'en' => $request->address_en,
@@ -54,7 +64,8 @@ class SettingsController extends Controller
             'keywords' => $request->keywords,
             'address_url' => $request->address_url,
             'logo' => $logo,
-            'footer_logo' => $footer_logo
+            'footer_logo' => $footer_logo,
+            'info_bg' => $info_bg
         ]);
 
         return redirect()->route('dashboard.settings.index')->with('success', 'Parametrlər yeniləndi');

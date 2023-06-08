@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('title', trans('global.products'))
+@section('title', trans('global.catalog'))
 
 @section('content')
     <section class="space-y-10 container px-5 lg:px-0 mx-auto pb-10 lg:py-20">
@@ -13,22 +13,7 @@
                     @endisset
                 </div>
                 <div class="lg:col-span-9">
-                    <div class="flex justify-center lg:justify-end">
-                        <div class="gap-2 flex items-center lg:gap-4">
-                            <div class="text-lg">
-                                {{ trans('global.sort') }}:
-                            </div>
-                            <select class="rounded-full px-4 py-2 block" name="sort">
-                                <option @if(isset($sort) && $sort === 'default') selected @endif value="default">{{ trans('global.default') }}</option>
-                                <option @if(isset($sort) && $sort === 'price_asc') selected @endif value="price_asc">{{ trans('global.price_asc') }}</option>
-                                <option @if(isset($sort) && $sort === 'price_desc') selected @endif value="price_desc">{{ trans('global.price_desc') }}</option>
-                                <option @if(isset($sort) && $sort === 'popularity') selected @endif value="popularity">{{ trans('global.popularity') }}</option>
-                            </select>
-                            <button class="font-medium px-4 py-1 rounded-full bg-amber-400 hover:bg-amber-500">
-                                {{ trans('global.apply_sort') }}
-                            </button>
-                        </div>
-                    </div>
+                    @include('partials.sort')
                 </div>
 
                 <div class="lg:col-span-3">
@@ -36,6 +21,18 @@
                 </div>
 
                 <div class="lg:col-span-9">
+                    @if($parent_category)
+                        <div class="pb-5 border-b border-neutral-100 grid grid-cols-12 space-x-5">
+                            @foreach($parent_category->children as $child)
+                                <a class="col-span-4 lg:col-span-2 block space-y-2" href="{{ route('products.index', ['category' => $child->slug]) }}">
+                                    <div class="border">
+                                        <img class="w-full" src="{{ asset($child->image) }}" alt="">
+                                    </div>
+                                    <h4 class="text-center text-sm text-neutral-600">{{ $child->name }}</h4>
+                                </a>
+                            @endforeach
+                        </div>
+                    @endif
                     @include('partials.products', $products)
                 </div>
             </div>

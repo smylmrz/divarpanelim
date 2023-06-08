@@ -15,6 +15,26 @@
                             >
                             <span class="font-medium">{{ $category->name }}</span>
                         </label>
+
+                        @if(count($category->children))
+                            <ul class="py-1 pl-5">
+                                @foreach($category->children as $child)
+                                    <li>
+                                        <label class="cursor-pointer flex gap-2">
+                                            <input
+                                                type="checkbox"
+                                                name="category[]"
+                                                value="{{ $child->slug }}"
+                                                @if(isset($filter_categories) && in_array($child->slug, $filter_categories))
+                                                    checked
+                                                @endif
+                                            >
+                                            <span class="font-medium">{{ $child->name }}</span>
+                                        </label>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        @endif
                     </li>
                 @endforeach
             </ul>

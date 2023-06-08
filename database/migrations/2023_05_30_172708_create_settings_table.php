@@ -21,6 +21,8 @@ return new class extends Migration
             $table->text('copyright');
             $table->text('phone');
             $table->text('address');
+            $table->text('about')->nullable();
+            $table->string('info_bg')->nullable();
             $table->text('address_url');
             $table->text('keywords')->nullable();
             $table->timestamps();

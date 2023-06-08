@@ -1,6 +1,6 @@
 <div class="lg:grid h-full lg:grid-cols-12 space-y-5 lg:space-y-0 gap-10">
     @forelse($products as $product)
-        <div class="lg:col-span-4">
+        <div class="lg:col-span-{{ $columns ?? 4 }}">
             @include('partials.product')
         </div>
     @empty

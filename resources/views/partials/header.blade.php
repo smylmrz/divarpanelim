@@ -15,11 +15,6 @@
             "route" => "designs.index",
             "path" => "/designs"
         ],
-        [
-            "name" => trans("global.contact"),
-            "route" => "contact",
-            "path" => "/contact"
-        ]
     ]
 @endphp
 

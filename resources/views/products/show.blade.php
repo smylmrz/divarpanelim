@@ -47,7 +47,7 @@
                 {{ trans('global.related_products') }}
             </h1>
 
-            @include('partials.products', $products)
+            @include('partials.products', ['products' => $products, 'columns' => 3])
         </div>
         @endif
     </section>

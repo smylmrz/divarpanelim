@@ -64,6 +64,7 @@ Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function(){
         Route::get('/', [\App\Http\Controllers\Admin\AdminController::class, 'index'])->name('index');
 
         Route::resource('languages', \App\Http\Controllers\Admin\LanguageController::class);
+        Route::resource('materials', \App\Http\Controllers\Admin\MaterialController::class);
         Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class);
         Route::resource('sliders', \App\Http\Controllers\Admin\SliderController::class);
         Route::resource('products', \App\Http\Controllers\Admin\ProductController::class);

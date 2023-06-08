@@ -120,24 +120,24 @@
                                 Əlavə et
                             </a>
                         </li>
-                        <li>
-                            <i class="menu-icon ti-view-list"></i>
-                            <a href="">
-                                Atributlar
-                            </a>
-                        </li>
+{{--                        <li>--}}
+{{--                            <i class="menu-icon ti-view-list"></i>--}}
+{{--                            <a href="">--}}
+{{--                                Atributlar--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
                         <li>
                             <i class="ti-bolt"></i>
-                            <a href="">
-                                Seçilmişlər
+                            <a href="{{ route('dashboard.materials.index') }}">
+                                Materiallar
                             </a>
                         </li>
-                        <li>
-                            <i class="ti-search"></i>
-                            <a href="">
-                                Axtarış terminləri
-                            </a>
-                        </li>
+{{--                        <li>--}}
+{{--                            <i class="ti-search"></i>--}}
+{{--                            <a href="">--}}
+{{--                                Axtarış terminləri--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
                     </ul>
                 </li>
 

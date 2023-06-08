@@ -63,6 +63,8 @@
                             @endforeach
                         </div>
 
+                        <hr>
+
                         <div class="row">
                             @foreach($languages as $l)
                                 <div class="col-md-4">
@@ -90,6 +92,8 @@
                                 name="address_url"
                             >
                         </div>
+
+                        <hr>
 
                         <div class="row">
                             @foreach($languages as $l)
@@ -131,15 +135,24 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label>Telefon<span class="required">*</span></label>
-                            <input
-                                type="text"
-                                required
-                                class="form-control"
-                                value="{{ $settings->phone }}"
-                                name="phone"
-                            >
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label>Telefon<span class="required">*</span></label>
+                                <input
+                                    type="text"
+                                    required
+                                    class="form-control"
+                                    value="{{ $settings->phone }}"
+                                    name="phone"
+                                >
+                            </div>
+
+                            <div class="col-md-6 form-group">
+                                <label>Info şəkil</label>
+                                <input type="file" class="form-control" name="info_bg">
+                            </div>
                         </div>
 
                         <div class="form-group">
@@ -150,6 +163,20 @@
                                 class="form-control"
                                 name="keywords"
                             >{{ $settings->keywords }}</textarea>
+                        </div>
+
+                        <div class="row">
+                            @foreach($languages as $l)
+                                <div class="col-md-4 form-group">
+                                    <label>Haqqımızda ({{$l->slug}})</label>
+                                    <textarea
+                                        cols="30"
+                                        rows="4"
+                                        class="form-control"
+                                        name="{{'about_' . $l->slug}}"
+                                    >{{ $settings->getTranslation('about', $l->slug) }}</textarea>
+                                </div>
+                            @endforeach
                         </div>
 
                         <button class="btn btn-primary">
@@ -167,6 +194,4 @@
 
 @section('load')
     @include('dashboard.inc.scripts.swal')
-    @include('dashboard.inc.scripts.ck')
-
 @endsection

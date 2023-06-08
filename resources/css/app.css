@@ -21,3 +21,14 @@ input[type="checkbox"] {
     accent-color: #fbbf24;
 }
 
+.info-bar {
+    position: relative;
+}
+
+.info-bar::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0,0,0, 0.8);
+}
+

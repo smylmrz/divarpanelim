@@ -48,7 +48,7 @@ class AppServiceProvider extends ServiceProvider
 
         view()->share([
             'languages' => Language::all(),
-            'categories' => Category::with('children')->get(),
+            'categories' => Category::whereNull('parent_id')->with('children')->get(),
             'socials' => Social::all(),
             'settings' => Settings::find(1),
         ]);

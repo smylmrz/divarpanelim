@@ -26,18 +26,19 @@ class ProductController extends Controller
         ]);
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
         $imagePath = FileManager::upload($request->file('image'), 'uploads/products/', $request->slug);
 
         $designPath = null;
 
-//        if($request->hasFile('design')) {
-//           $design = $request->file('design');
-//           $designName = '/uploads/products/' . $request->slug . '.' . $design->extension();
-//           $design->move(public_path('uploads/products'), $designName);
-//        }
+        if($request->hasFile('design')) {
+            $design = $request->design;
 
+            $designPath = '/uploads/designs/' . $request->slug . '.' . $design->extension();
+            $design->move('uploads/designs/', $designPath);
+
+        }
 
         Product::create([
             'name' => [
@@ -84,9 +85,12 @@ class ProductController extends Controller
             $imagePath = FileManager::upload($request->file('image'), 'uploads/products/', $request->slug);
         }
 
-//        if($request->hasFile('design')) {
-//            $designPath = FileManager::upload($request->file('design'), 'uploads/products/', $request->slug, 'zip');
-//        }
+        if($request->hasFile('design')) {
+            $design = $request->design;
+
+            $designPath = '/uploads/designs/' . $request->slug . '.' . $design->extension();
+            $design->move('uploads/designs/', $designPath);
+        }
 
 
         $product->update([

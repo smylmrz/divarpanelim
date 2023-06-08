@@ -17,13 +17,15 @@ class Settings extends Model
         'description',
         'logo',
         'footer_logo',
+        'info_bg',
         'copyright',
         'phone',
         'address',
         'address_url',
-        'keywords'
+        'keywords',
+        'about'
     ];
 
-    public $translatable = ['title', 'tagline', 'description', 'copyright', 'address'];
+    public $translatable = ['title', 'tagline', 'description', 'copyright', 'address', 'about'];
 
 }

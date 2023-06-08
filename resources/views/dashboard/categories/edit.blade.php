@@ -60,13 +60,13 @@
                                 <div class="form-group">
                                     <label>Üst kateqoriya <span class="required">*</span></label>
                                     <select name="parent_id" class="form-control">
+                                        <option value=""></option>
                                         @if ($category->parent_id)
                                             @foreach ($categories as $cat)
                                                 <option {{( $category->parent->id == $cat->id) ? "selected" : ""}} value="{{$cat->id}}">{{$cat->name}}</option>
                                             @endforeach
                                         @else
                                             @foreach ($categories as $cat)
-                                                <option selected ></option>
                                                 <option value="{{$cat->id}}">{{$cat->name}}</option>
                                             @endforeach
                                         @endif
